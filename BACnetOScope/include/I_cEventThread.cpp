@@ -1,6 +1,6 @@
 #include "I_cEventThread.h"
-#include <include/bacapiQt/bacapi.h>
-#include <include/bacapiQt/bacevent.h>
+#include "bacapiQt/bacapi.h"
+#include "bacapiQt/bacevent.h"
 
 I_cEventThread::I_cEventThread(QObject *parent)
 {

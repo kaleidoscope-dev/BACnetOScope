@@ -60,13 +60,13 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <PreprocessorDefinitions>BACAPI_BUILD_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\dev\prj\Windows\VS\BACnet\BACnetOScope\BACnetOScope;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>BACnetOScope;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Networkd.lib;C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Cored.lib;C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Guid.lib;C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Widgetsd.lib;C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Sqld.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(QT_LIBS_);$(QTDIR)/lib/Qt5Networkd.lib;$(QTDIR)/lib/Qt5Sqld.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -75,11 +75,14 @@
       <DebugInformationFormat />
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <AdditionalIncludeDirectories>BACnetOScope;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BACAPI_BUILD_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>$(QT_LIBS_);$(QTDIR)/lib/Qt5Network.lib;$(QTDIR)/lib/Qt5Sql.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

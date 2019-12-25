@@ -1,6 +1,6 @@
 #pragma once
 #include <qthread.h>
-#include "include/bacapiQt/bacnet.h"
+#include "bacapiQt/bacnet.h"
 
 class I_cEventThread : public QThread
 {

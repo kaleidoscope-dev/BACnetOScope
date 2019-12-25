@@ -1,6 +1,6 @@
 #include "I_cObjectRead.h"
-#include <include/bacapiQt/bacapi.h>
-#include <include/bacapiQt/bacevent.h>
+#include "bacapiQt/bacapi.h"
+#include "bacapiQt/bacevent.h"
 
 
 I_cObjectRead::I_cObjectRead(QObject *parent)

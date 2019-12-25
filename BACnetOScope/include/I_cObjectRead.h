@@ -1,7 +1,7 @@
 #pragma once
 #include <qthread.h>
-#include "include/bacapiQt/bacnet.h"
-#include "include/bacapiQt/I_cBACClientQt.h"
+#include "bacapiQt/bacnet.h"
+#include "bacapiQt/I_cBACClientQt.h"
 #include "qmutex.h"
 #include "qwaitcondition.h"
 
