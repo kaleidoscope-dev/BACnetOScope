@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="CODE">
+      <UniqueIdentifier>{fe1e20b9-7137-42b5-be5e-cd2b8ea1cf33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CODE\Main">
+      <UniqueIdentifier>{3ae1392c-fd34-4dfb-89e9-55936650de15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CODE\BACapi">
+      <UniqueIdentifier>{f146fb36-2d23-4cc8-93f6-9c3d1eda2834}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BACnetOScope.cpp">
+      <Filter>CODE\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>CODE\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="include\I_cEventThread.cpp">
+      <Filter>CODE\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="include\I_cItemTree.cpp">
+      <Filter>CODE\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="include\I_cObjectRead.cpp">
+      <Filter>CODE\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="include\flickable.cpp">
+      <Filter>CODE\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\bacobject.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\enumpairs.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cAPDUDecoder.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cAPDUEncoder.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cBACClient.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cBACClientIP.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cBACClientQt.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cBACdec.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cBACDeviceList.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cBACLog.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cBACNet.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cBACServiceHandler.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cDecoder.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cNetworkHandler.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cNPDUDecoder.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cNPDUEncoder.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cSettings.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cTimer.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\I_cWiresharkIO.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\macnamedef.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\namedef.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\bacapi.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\bacerr.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+    <ClCompile Include="include\bacapiQt\bacevent.cpp">
+      <Filter>CODE\BACapi</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="BACnetOScope.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="BACnetOScope.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="BACnetOScope.h">
+      <Filter>CODE\Main</Filter>
+    </QtMoc>
+    <QtMoc Include="include\I_cEventThread.h">
+      <Filter>CODE\Main</Filter>
+    </QtMoc>
+    <QtMoc Include="include\I_cItemTree.h">
+      <Filter>CODE\Main</Filter>
+    </QtMoc>
+    <QtMoc Include="include\I_cObjectRead.h">
+      <Filter>CODE\Main</Filter>
+    </QtMoc>
+    <QtMoc Include="include\bacapiQt\I_cBACClientQt.h">
+      <Filter>CODE\BACapi</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\flickable.h">
+      <Filter>CODE\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\bacnet.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\bacobject.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cAPDUDecoder.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cAPDUEncoder.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cBACClient.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cBACClientIP.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cBACdec.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cBACDeviceList.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cBACLog.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cBACNet.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cBACServiceHandler.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cDecoder.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cNetworkHandler.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cNPDUDecoder.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cNPDUEncoder.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cSettings.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cTimer.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\I_cWiresharkIO.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\macnamedef.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\mstpdef.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\namedef.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\npdu.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\bacapi.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\bacdef.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\bacerr.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bacapiQt\bacevent.h">
+      <Filter>CODE\BACapi</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

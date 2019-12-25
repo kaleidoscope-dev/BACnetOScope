@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
+    <Keyword>QtVS_v302</Keyword>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>Qt-VS2017-64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt-VS2017-64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PreprocessorDefinitions>BACAPI_BUILD_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\dev\prj\Windows\VS\BACnet\BACnetOScope\BACnetOScope;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Networkd.lib;C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Cored.lib;C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Guid.lib;C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Widgetsd.lib;C:\dev\inc\Qt5.14\5.14.0\msvc2017_64\lib\Qt5Sqld.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BACnetOScope.cpp" />
+    <ClCompile Include="include\bacapiQt\bacapi.cpp" />
+    <ClCompile Include="include\bacapiQt\bacerr.cpp" />
+    <ClCompile Include="include\bacapiQt\bacevent.cpp" />
+    <ClCompile Include="include\bacapiQt\bacobject.cpp" />
+    <ClCompile Include="include\bacapiQt\enumpairs.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cAPDUDecoder.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cAPDUEncoder.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cBACClient.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cBACClientIP.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cBACClientQt.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cBACdec.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cBACDeviceList.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cBACLog.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cBACNet.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cBACServiceHandler.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cDecoder.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cNetworkHandler.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cNPDUDecoder.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cNPDUEncoder.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cSettings.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cTimer.cpp" />
+    <ClCompile Include="include\bacapiQt\I_cWiresharkIO.cpp" />
+    <ClCompile Include="include\bacapiQt\macnamedef.cpp" />
+    <ClCompile Include="include\bacapiQt\namedef.cpp" />
+    <ClCompile Include="include\flickable.cpp" />
+    <ClCompile Include="include\I_cEventThread.cpp" />
+    <ClCompile Include="include\I_cItemTree.cpp" />
+    <ClCompile Include="include\I_cObjectRead.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="BACnetOScope.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="BACnetOScope.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="BACnetOScope.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\bacapiQt\bacapi.h" />
+    <ClInclude Include="include\bacapiQt\bacdef.h" />
+    <ClInclude Include="include\bacapiQt\bacerr.h" />
+    <ClInclude Include="include\bacapiQt\bacevent.h" />
+    <ClInclude Include="include\bacapiQt\bacnet.h" />
+    <ClInclude Include="include\bacapiQt\bacobject.h" />
+    <ClInclude Include="include\bacapiQt\I_cAPDUDecoder.h" />
+    <ClInclude Include="include\bacapiQt\I_cAPDUEncoder.h" />
+    <ClInclude Include="include\bacapiQt\I_cBACClient.h" />
+    <ClInclude Include="include\bacapiQt\I_cBACClientIP.h" />
+    <QtMoc Include="include\bacapiQt\I_cBACClientQt.h" />
+    <ClInclude Include="include\bacapiQt\I_cBACdec.h" />
+    <ClInclude Include="include\bacapiQt\I_cBACDeviceList.h" />
+    <ClInclude Include="include\bacapiQt\I_cBACLog.h" />
+    <ClInclude Include="include\bacapiQt\I_cBACNet.h" />
+    <ClInclude Include="include\bacapiQt\I_cBACServiceHandler.h" />
+    <ClInclude Include="include\bacapiQt\I_cDecoder.h" />
+    <ClInclude Include="include\bacapiQt\I_cNetworkHandler.h" />
+    <ClInclude Include="include\bacapiQt\I_cNPDUDecoder.h" />
+    <ClInclude Include="include\bacapiQt\I_cNPDUEncoder.h" />
+    <ClInclude Include="include\bacapiQt\I_cSettings.h" />
+    <ClInclude Include="include\bacapiQt\I_cTimer.h" />
+    <ClInclude Include="include\bacapiQt\I_cWiresharkIO.h" />
+    <ClInclude Include="include\bacapiQt\macnamedef.h" />
+    <ClInclude Include="include\bacapiQt\mstpdef.h" />
+    <ClInclude Include="include\bacapiQt\namedef.h" />
+    <ClInclude Include="include\bacapiQt\npdu.h" />
+    <ClInclude Include="include\flickable.h" />
+    <QtMoc Include="include\I_cObjectRead.h" />
+    <QtMoc Include="include\I_cItemTree.h" />
+    <QtMoc Include="include\I_cEventThread.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

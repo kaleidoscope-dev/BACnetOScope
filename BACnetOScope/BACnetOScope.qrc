@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/BACnetOScope">
+        <file>data/arrow_expanded.png</file>
+        <file>data/arrow_not_expanded.png</file>
+        <file>data/back_to_dev.png</file>
+        <file>data/back_to_obj.png</file>
+        <file>data/back_to_prop.png</file>
+        <file>data/back_to_val.png</file>
+        <file>data/bacnet_splash - Copy.png</file>
+        <file>data/bacnet_splash.png</file>
+        <file>data/dev_icon.png</file>
+        <file>data/dev_info.png</file>
+        <file>data/obj_icon.png</file>
+        <file>data/prop_icon.png</file>
+        <file>data/refresh.png</file>
+        <file>data/settings.png</file>
+        <file>data/val_icon.png</file>
+        <file>data/write.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,179 @@
+#ifndef BACAPI_ERROR_H
+#define BACAPI_ERROR_H
+
+#include "bacnet.h"
+
+
+// TODO: napraviti neki globalnuy strukturu gdje ce se oznaciti tocno gdje se desio error
+
+// lista error stanja
+typedef enum BACAPI_ERROR
+{
+ // BACAPI error stanja
+ BACAPI_OK ,
+ BACAPI_ERROR_FAILED ,
+ BACAPI_ERROR_INTERFACE_IP,
+ BACAPI_ERROR_INTERFACE_ETH ,
+ BACAPI_ERROR_INTERFACE_MSTP,
+ BACAPI_ERROR_INTERFACE_NO_INTERFACE,
+ BACAPI_ERROR_CLIENT_SOCKET_OPEN_ERR ,
+ BACAPI_ERROR_CLIENT_SEND_FAILED ,
+ BACAPI_ERROR_NAMED_PIPE_FAIL,
+ BACAPI_ERROR_MALFORMED_PACKET,
+ BACAPI_ERROR_INVALID_PARAMETER,
+ BACAPI_ERROR_REQUIRED_PROPERTY_MISSING ,
+ BACAPI_ERROR_MALFORMED_OBJECT_CODING ,
+ BACAPI_ERROR_OID_EXISTS,
+ BACAPI_ERROR_DEVICE_EXISTS,
+ BACAPI_ERROR_SEGMENTATION_NOT_SUPPORTED,
+ BACAPI_ERRROR_INVALID_ARRAY_INDEX ,
+ BACAPI_ERROR_UNKNOWN_PROPERTY,
+ BACAPI_ERROR_UNSUPPORTED_EVENT_PARAMETER,
+ BACAPI_ERROR_UNSUPPORTED_SERVICE,  // - ako BACAPI ne podrzava ovaj service
+ BACAPI_ERROR_PROPRIETARY_COMPLEX_VALUE,
+
+ // BACNET ERROR STANJA
+ BACAPI_ERROR_MISSING_REQUIRED_PARAMETER ,
+ BACAPI_ERROR_UNRECOGNIZED_SERVICE,   // - ovo dolazi s devicea ili clijenta ako BACnet net podrzava service
+ BACAPI_ERROR_INVALID_OPENING_TAG,
+ BACAPI_ERROR_INVALID_CLOSING_TAG,
+ BACAPI_ERROR_UNSUPPORTED_APPLICATION_TAG,
+ BACAPI_ERROR_INVALID_TAG,
+ BACAPI_ERROR_BACERROR,
+ BACAPI_ERROR_REJECT,
+ BACAPI_ERROR_ABORT,
+
+ // context errori
+ BACAPI_ERROR_CONTEXT_OBJECT_ID,
+ BACAPI_ERROR_CONTEXT_ENUMERATED,
+
+ // novi errori i poruke za message list
+ BACAPI_ERROR_MISSING_DATE_VALUE,
+ BACAPI_ERROR_MISSING_TIME_VALUE,
+ BACAPI_ERROR_MISSING_PROPERTY_VALUE,
+ BACAPI_ERROR_INVALID_DATETIME_VALUE,
+ BACAPI_ERROR_INVALID_INVOKE_ID,
+
+ BACAPI_MESSAGE_RECEIVED_WHO_IS,
+ BACAPI_MESSAGE_RECEIVED_I_AM,
+ BACAPI_MESSAGE_RECEIVED_I_HAVE,
+ BACAPI_MESSAGE_DATERANGE_ANY,
+ BACAPI_MESSAGE_RECEIVED_ALARM_SUMMARY,
+ BACAPI_MESSAGE_RECEIVED_ENROLLMENT_SUMMARY,
+ BACAPI_MESSAGE_RECEIVED_EVENT_INFORMATION,
+ BACAPI_MESSAGE_RECEIVED_CONFIRMED_COV_NOTIFICATION,
+ BACAPI_MESSAGE_RECEIVED_UNCONFIRMED_COV_NOTIFICATION,
+ BACAPI_MESSAGE_RECEIVED_EVENT_NOTIFICATION,
+ BACAPI_WARNING_UNKNOWN_DEVICE_CONF_COV,
+ BACAPI_MESSAGE_SIMPLE_ACK,
+ BACAPI_WARNING_PROPERTY_ACCESS_ERROR,
+
+ // router poruke
+ BACAPI_MESSAGE_I_AM_ROUTER,
+ BACAPI_MESSAGE_WHO_IS_ROUTER,
+
+ // BDT i FD poruke
+ BACAPI_MESSAGE_BVLC_SUCCESS,
+ BACAPI_ERROR_BVLC_READ_BDT_NAK,
+ BACAPI_MESSAGE_BVLC_READ_BDT_ACK,
+ BACAPI_ERROR_BVLC_READ_FDT_NAK,
+ BACAPI_MESSAGE_BVLC_READ_FDT_ACK,
+ BACAPI_MESSAGE_BVLC_REGISTER_FD_NAK,
+
+
+ // temp
+ BACAPI_ERROR_PLACEHOLDER,
+
+}BACAPI_ERROR;
+
+typedef enum BACAPI_SEVERITY
+{
+ BACAPI_SEVERITY_CRITICAL,
+ BACAPI_SEVERITY_ERROR,
+ BACAPI_SEVERITY_WARNING,
+ BACAPI_SEVERITY_MESSAGE,
+ BACAPI_SEVERITY_MAX  // nije stanje. upotrebaljava se kao konstanta, koliko ima stanja
+}BACAPI_SEVERITY;
+
+typedef struct BACAPI_MESSAGE
+{
+ BACAPI_SEVERITY severity;
+ BACNET_DATALINK dlink;
+ BACNET_DEVICE *dev;
+ BACNET_OBJECT *obj;
+ BACNET_OBJECT_PROPERTY *prop;
+ BACNET_ADDRESS *adr;
+ #ifdef BACAPI_BUILD_WIN32
+ //SYSTEMTIME systime;
+ #endif
+
+ BACAPI_ERROR type;
+ BACNET_PDU_TYPE pdu_type;
+ uint8_t service;  // ovisno o pdu_type (conf/unconf)
+ string err_text;
+ string description;
+ uint8_t invoke_id;
+ BACNET_ERROR bac_err;
+ BACNET_ABORT bac_abort;
+ BACNET_REJECT_CODE rej_code;
+}BACAPI_MESSAGE;
+
+
+void BACAPI_Error_Test_Severity(BACAPI_SEVERITY severity);
+//void BACAPI_Message_TimePropertyValueMissing(BACNET_DEVICE *dev, BACNET_OBJECT *obj, BACNET_OBJECT_PROPERTY *prop);
+
+void BACAPI_Message(string txt, string desc, uint8_t severity);
+void BACAPI_Messagef(uint8_t severity, const char *desc, const char *msg, ...);
+
+
+void BACAPI_Message_UnableToCreateClient(void);
+void BACAPI_Message_WhoIsRequest(BACNET_NPDU_DATA *npdu);
+void BACAPI_Message_PropertyValueMissing(BACNET_DEVICE *dev, BACNET_OBJECT *obj, BACNET_OBJECT_PROPERTY *prop);
+void BACAPI_Message_InvalidInvokeId(BACNET_OBJECT *obj, uint8_t invoke_id);
+void BACAPI_Message_ReceivedI_AM(BACNET_DEVICE *dev);
+void BACAPI_Message_ReceivedI_Have(BACNET_DEVICE *dev,BACNET_OBJECT *obj);
+void BACAPI_Message_InvalidTag(BACNET_PDU_TYPE pdu_type, uint8_t service, uint8_t invoke_id, string description);
+void BACAPI_Message_InvalidDateTimeValue(BACNET_DEVICE *dev, BACNET_OBJECT *obj, BACNET_OBJECT_PROPERTY *prop);
+void BACAPI_Message_DateRangeAny(BACNET_DEVICE *dev, BACNET_OBJECT *obj, BACNET_OBJECT_PROPERTY *prop);
+void BACAPI_Message_Error(BACAPI_MESSAGE *msg);
+void BACAPI_Message_PropertyAccessError(BACNET_DEVICE *dev, BACNET_OBJECT *obj, BACNET_OBJECT_PROPERTY *prop);
+void BACAPI_Message_ReceivedAlarmSummary(BACNET_ALARM *alarm);
+void BACAPI_Message_ReceivedEnrollmentSummary(BACNET_ENROLLMENT_SUMMARY *summary);
+void BACAPI_Message_ReceivedEventInformation(BACNET_EVENT_INFORMATION *info);
+void BACAPI_Message_ReceivedConfirmedCOVNotification(BACNET_COV_NOTIFICATION *cov);
+void BACAPI_Message_ReceivedUnconfirmedCOVNotification(BACNET_COV_NOTIFICATION *cov);
+void BACAPI_Message_UnknownDeviceConfirmedCOV(BACNET_COV_NOTIFICATION *cov);
+void BACAPI_Message_Received_I_AM_Router(BACNET_ROUTER *router);
+void BACAPI_Message_Received_Who_Is_Router(BACNET_ADDRESS *from);
+//void BACAPI_Message_ConfirmedCOV_SimpleACK(BACNET_COV_NOTIFICATION *cov);
+
+void BACAPI_Message_ReceivedEventNotification(BACNET_EVENT_NOTIFICATION *notification);
+void BACAPI_Message_UnsupportedService(BACNET_PDU_TYPE pdu_type, uint8_t service, BACNET_ADDRESS *source);  // za lookout.
+
+void BACAPI_Message_BACnetReject_UnrecognizedService(uint8_t invokeid);
+
+void BACAPI_Message_BACnetError(BACNET_ERROR err, BACNET_ADDRESS *source, BACNET_OBJECT *obj, BACNET_OBJECT_PROPERTY *prop);
+void BACAPI_Message_BACnetAbort(BACNET_ABORT abt, BACNET_ADDRESS *source);
+void BACAPI_Message_BACnetReject(BACNET_REJECT_CODE code,uint8_t invoke, BACNET_ADDRESS *source);
+
+void BACAPI_Message_SimpleACK(uint8_t service, BACNET_ADDRESS *source);
+
+// bvlc
+void BACAPI_Message_BVLC_Read_BDT_NAK(BACNET_ADDRESS *source);
+void BACAPI_Message_BVLC_Read_BDT_ACK(BACNET_DEVICE *dev);
+
+void BACAPI_Message_BVLC_Read_FDT_NAK(BACNET_ADDRESS *source);
+void BACAPI_Message_BVLC_Read_FDT_ACK(BACNET_DEVICE *dev);
+void BACAPI_Message_BVLC_Register_FD_NAK(BACNET_ADDRESS *source);
+
+
+void BACAPI_Message_Named_Pipe_Fail(void);
+
+
+
+
+#endif
+
+
+
+
