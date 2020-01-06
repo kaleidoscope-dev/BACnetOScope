@@ -1,6 +1,7 @@
 # BACnetoscope
 
-BACnetoscope je BACnet Explorer program za Android OS
+BACnetoscope je BACnet Explorer program za Android OS  
+
 https://play.google.com/store/apps/details?id=org.kaleidoscope.bacnetscope
 
 ## Opis
