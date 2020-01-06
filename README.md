@@ -18,21 +18,21 @@ BACnet-O-Scope can also save any incoming and outgoing BACnet traffic it detects
 
 ## Start
 
-Snimiti Projekt na Disk I Build Projekt
+This are complete BACnetoscope Project. Including BACnetQT - BACapi implementation using Qt Network layer.
 
-### Uvjeti
+### Requirements
 
 Windows 10
 Visual Studio 2019
 Qt5.14
 BACapiQt (include folder)
 
-## Rad s Programom
+## Demo
 
 https://youtu.be/xl7DYdHi3YM
 
 
-## Verzija
+## Version
 
 v1.0 - Release
 
@@ -43,8 +43,8 @@ dmaljur@yahoo.com
 
 ## License
 
-Ovo je komercijalni program i sav code u ovom GitHub projektu pripada Kaleidoscope ltd.
-Sva Prava Zadržana
+This is a commercial program and it's uploaded here for demonstration purposes.  
+Sharing of this code or its variations is not permitted.
 
 
 
