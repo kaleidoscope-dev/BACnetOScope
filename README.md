@@ -19,6 +19,7 @@ BACnet-O-Scope can also save any incoming and outgoing BACnet traffic it detects
 ## Start
 
 This are complete BACnetoscope Project. Including BACnetQT - BACapi implementation using Qt Network layer.
+If Qt is installed on the system. Then download and build a project. 
 
 ### Requirements
 
